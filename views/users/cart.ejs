@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Shopify</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <%- include ../partials/user_navbar %>
+    <div id="divElement">
+        <div class="alert alert-danger" role="alert">
+            Deleted
+        </div>
+    </div>
+    <h1 class="display-3 text-center">Cart</h1>
+    <div class="container flex-container" id="container">
+        <% for(let i=0; i < products.length; i++) { %>
+        <div class="card flex-prop" id=<%= products[i].productId %> style="width: 18rem;">
+            <img src=<%= products[i].image %> class="card-img-top" />
+            <div class="card-body">
+                <span class="font-weight-bold mb-2" style="display: block;">
+                    Name: <p class="card-text Name" style="display: inline-block"><%=products[i].name %></p>
+                </span>
+                <span class="font-weight-bold mb-2" style="display: block;">
+                    Quantity: <p class="card-text Qty" id="<%= i %>" style="display: inline-block"><%=products[i].qty %></p>
+                </span>
+                <span class="font-weight-bold mb-2" style="display: block;">
+                    Price: <p class="card-text Price" style="display: inline-block"><%=products[i].price %></p>
+                </span>
+                <input type="hidden" class="hidden" name="hid" max="<%= prod[i] %>">
+            </div>
+            <div class="d-flex flex-row justify-content-around">
+                <button class="btn btn-danger text-center flex-fill mx-3 my-2 Delete">Delete</button>
+            </div>
+        </div>
+        <% } %>
+    </div>
+    <div class="text-center mb-3">
+        <a href="#" class="btn btn-success Checkout" id="CheckOut">Proceed to Checkout</a>
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="/js/cart.js"></script>
+    <!-- <script src="/js/add.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
